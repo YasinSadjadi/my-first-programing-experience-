@@ -1,0 +1,179 @@
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
+using System.Runtime.InteropServices;
+using System.Xml.Serialization;
+
+Console.SetCursorPosition(0, 0);
+Console.SetWindowSize(100, 30);
+
+char A;
+
+do
+{
+
+    Console.WriteLine("hello user , if you want to use this app please choose one of this");
+    Console.ForegroundColor = ConsoleColor.DarkGreen;
+    Console.WriteLine("1. detail");
+    Console.ForegroundColor = ConsoleColor.Cyan;
+    Console.WriteLine("2. summary");
+    Console.ResetColor();
+
+    A = char.Parse(Console.ReadLine());
+    Console.Clear();
+
+    if (A == '1')
+    {
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+        Console.Title = "detailed info";
+        Console.SetCursorPosition(1, 1);
+        Console.SetWindowSize(46, 30);
+
+
+
+        Console.Write("first name : ");
+        Console.ResetColor();
+        Console.ReadLine();
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("______________________________________________");
+
+        Console.Write("last name : ");
+        Console.ResetColor();
+        Console.ReadLine();
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("______________________________________________");
+        Console.Write("father's name : ");
+        Console.ResetColor();
+        Console.ReadLine();
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("______________________________________________");
+
+        Console.Write("hight : ");
+        Console.ResetColor();
+        Console.ReadLine();
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("______________________________________________");
+
+        Console.Write("date of born : ");
+        Console.ResetColor();
+        int Age;
+        int BornDate;
+        do
+        {
+
+
+            BornDate = int.Parse(Console.ReadLine());
+            Age = 2023 - BornDate;
+
+
+
+            if (Age < 200 & Age > 0)
+            {
+
+                Console.WriteLine(); //just for giving space
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write("youre age is  ");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(Age);
+                Console.WriteLine();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write("cellphone : ");
+                string CellPhone = Console.ReadLine();
+
+                string StartingNumber = CellPhone.Substring(0, 2);
+
+
+                if (StartingNumber == "+9")
+                {
+                    string PhonNumber = CellPhone.Replace("+98", "0");
+                    Console.WriteLine(PhonNumber);
+                }
+                else if (StartingNumber == "09")
+                {
+                    Console.WriteLine(CellPhone);
+                }
+                else
+                {
+                    Console.Beep();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("wrong input");
+                    Console.ResetColor();
+                    continue;
+                }
+
+
+
+
+
+                Console.WriteLine("press any key to exit");
+                Console.ReadKey();
+                Console.Clear();
+
+            }
+            else
+            {
+                continue;
+                Console.Clear();
+                Console.Beep();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("wrong input");
+                Console.WriteLine("press any key to continue");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+            }
+
+        } while (Age > 200 & Age < 0);
+
+        break;
+    }
+    else if (A == '2')
+    {
+
+        Console.Clear();
+        Console.Title = "summary info";
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.SetCursorPosition(1, 1);
+        Console.Write("first name : ");
+
+        Console.ResetColor();
+        Console.ReadLine();
+
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("______________________________________________");
+
+        Console.Write("last name : ");
+
+        Console.ResetColor();
+        Console.ReadLine();
+
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("______________________________________________");
+        Console.Write("age : ");
+
+        Console.ResetColor();
+        Console.ReadLine();
+        break;
+
+    }
+    else
+    {
+        continue;
+        Console.Beep();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("something went wrong");
+        Console.WriteLine("press any key to continue");
+        Console.ReadKey();
+        Console.ResetColor();
+        Console.Clear();
+    }
+} while (A != 1 & A != 2);
+
